@@ -109,7 +109,7 @@ export class PvPageEmployment extends PvBase {
     return html`
       <div class="hero-content">
         <div class="container">
-          <h1>Careers at Tibbetts</h1>
+          <h1>Careers at Empire</h1>
           <p>Grow your career with Florida’s leading building material supplier</p>
         </div>
       </div>
@@ -120,7 +120,7 @@ export class PvPageEmployment extends PvBase {
             <div class="text-content">
               <h2 style="font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: var(--space-lg); color: var(--color-primary);">Work With Us</h2>
               <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--space-md); color: var(--color-text-light);">
-                At Tibbetts Lumber, we are more than just a company; we are a family. 
+                At Empire Lumber, we are more than just a company; we are a family. 
                 We believe that our people are our greatest asset and the foundation of our success. 
                 Whether you're an experienced professional or just starting your career, 
                 we offer a supportive environment where you can grow and excel.
@@ -131,7 +131,7 @@ export class PvPageEmployment extends PvBase {
               </p>
             </div>
             <div class="image-container">
-              <img src="/tibbetts-team.png" alt="Tibbetts Lumber Team" style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+              <img src="/empire-team.png" alt="Empire Lumber Team" style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@ export class PvPageEmployment extends PvBase {
           </div>
           
           <div class="cta-box">
-            <h3>Find Your Path with Tibbetts Lumber</h3>
+            <h3>Find Your Path with Empire Lumber</h3>
             <p>View our current openings on our career portal.</p>
             <a href="https://workforcenow.adp.com" target="_blank" class="btn-white">Browse All Jobs</a>
           </div>

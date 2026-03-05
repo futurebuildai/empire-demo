@@ -121,7 +121,7 @@ export class PvPageAbout extends PvBase {
     return html`
       <div class="hero-content">
         <div class="container">
-          <h1>About Tibbetts Lumber</h1>
+          <h1>About Empire Lumber</h1>
           <p>Building Florida's Future Since 1949</p>
         </div>
       </div>
@@ -132,7 +132,7 @@ export class PvPageAbout extends PvBase {
             <div class="text-content">
               <h2>Our Heritage</h2>
               <p>
-                Founded in 1949 by Linton N. Tibbetts, Tibbetts Lumber Co. has grown from a single location 
+                Founded in 1949 by Linton N. Empire, Empire Building Materials has grown from a single location 
                 into a major force in the Florida construction industry. Our commitment to quality materials 
                 and exceptional service has remained unchanged for over seven decades.
               </p>
@@ -143,7 +143,7 @@ export class PvPageAbout extends PvBase {
               </p>
             </div>
             <div class="image-content">
-              <img src="/tibbetts-heritage.png" alt="Tibbetts Lumber Heritage" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+              <img src="/empire-heritage.png" alt="Empire Lumber Heritage" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
             </div>
           </div>
 

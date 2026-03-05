@@ -97,7 +97,7 @@ export class PvPageContact extends PvBase {
     ];
 
     private locations = [
-        { name: 'Tampa', address: '9602 N. Hwy 301, Tampa, FL 33619', phone: '(813) 246-5500' },
+        { name: 'Tampa', address: '9602 N. Hwy 301, Tampa, FL 33619', phone: '(800) 283-3254' },
         { name: 'Pensacola', address: '6960 N. Ninth Ave., Pensacola, FL 32504', phone: '(850) 474-1221' },
         { name: 'Ft. Myers', address: '8501 Alico Rd., Ft. Myers, FL 33912', phone: '(239) 433-4100' },
         { name: 'Melbourne', address: '2280 W. Eau Gallie Blvd., Melbourne, FL 32935', phone: '(321) 259-3333' },
@@ -124,7 +124,7 @@ export class PvPageContact extends PvBase {
           <div class="corporate-header">
             <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: var(--space-md); color: var(--color-primary);">Corporate Headquarters</h2>
              <p style="font-size: 1.125rem; font-weight: 500;">9602 N. Hwy 301, Tampa, FL 33619</p>
-             <p style="font-size: 1.125rem;">Phone: (813) 246-5500 | Email: info@tibbettslumber.com</p>
+             <p style="font-size: 1.125rem;">Phone: (800) 283-3254 | Email: info@empireinc.com</p>
           </div>
 
           <h2 style="text-align: center; font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-primary);">Our Locations</h2>

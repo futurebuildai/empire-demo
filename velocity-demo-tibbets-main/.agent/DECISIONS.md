@@ -476,3 +476,56 @@ Overlapping drawers (Quote and Cart) and their absolute positioning led to point
 ### Rationale
 - Prevents "invisible" UI elements from breaking page interactions.
 - Ensures robust multi-drawer scalability.
+
+---
+
+## DEC-024: Empire Building Materials Rebranding & Refactor
+
+**Date:** 2026-03-05
+**Status:** Decided
+
+### Context
+User requested a full refactor for Empire Building Materials (https://www.empireinc.com/), pivoting from the generic "Boss Lumber" or "Velocity" branding to a specific distributor-to-dealer model.
+
+### Decision
+1. **Logo & Text**: Replaced all mentions of Velocity/Home Pros USA with Empire Building Materials.
+2. **Contact Info**: Standardized on (800) 255-0311 and support@empireinc.com.
+3. **Login**: Updated default demo login to `j.dealer@qualitylumber.com`.
+
+### Rationale
+- Direct alignment with the user's specific business use case.
+
+---
+
+## DEC-025: ACH-Only Payment Strategy
+
+**Date:** 2026-03-05
+**Status:** Decided
+
+### Context
+Empire Building Materials operates on a distributor-to-dealer model where high-value transactions are settled via ACH rather than credit cards to avoid fees.
+
+### Decision
+1. **Remove Cards**: Deleted all credit card options and placeholder data.
+2. **ACH Filtering**: Restricted the `pv-payment-modal` to only show and accept ACH/Bank Account methods.
+
+### Rationale
+- Matches the financial operations of the target business model.
+
+---
+
+## DEC-026: PO-Driven Distributor Model
+
+**Date:** 2026-03-05
+**Status:** Decided
+
+### Context
+Dealers primarily interact via Purchase Orders (POs) for bulk material orders.
+
+### Decision
+1. **Submit PO Modal**: Transformed the "Quick Quote" feature into a "Submit Purchase Order" modal supporting document upload.
+2. **PO Column Priority**: Elevated PO numbers in the Orders table to the primary position alongside Order #.
+3. **Estimates vs Quotes**: Renamed "Estimates" to "Quotes" to better reflect the pricing inquiry phase of the dealer model.
+
+### Rationale
+- Improves workflow efficiency for Pro users who rely on POs to sync with their own internal systems.

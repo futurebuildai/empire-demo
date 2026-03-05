@@ -51,12 +51,19 @@
 
 ---
 
-## Phase 4: Portability & Widget Mode
-- [ ] Optimize for iframe/widget embedding
-- [ ] Implement OAuth2/SSO for dealer sites
-- [ ] Customizable theme overrides via CSS variables
+---
+
+## Phase 5: Empire Building Materials Refactor ✅
+- [x] **Branding**: Rebranded portal to Empire Building Materials (800-255-0311, support@empireinc.com).
+- [x] **Overview**: Replaced Pending Estimates with Sales Rep card; converted Quick Quote to Submit PO.
+- [x] **Billing**: Restricted payments to ACH only; removed credit card logic/data.
+- [x] **Orders & Quotes**: Refactored to distributor-to-dealer bulk model with PO emphasis.
+- [x] **Pruning**: Removed Documents and Projects pages to align with requested scope.
+- [x] **Mock Data**: Updated `customer-mock.ts` with Empire-specific business model data.
 
 ---
+
+## Phase 6: Portability & Widget Mode
 
 ## Future Ideas (Backlog)
 | Feature | Priority | Notes |

@@ -265,7 +265,7 @@ export class PvHeader extends PvBase {
   }
 
   render() {
-    const tenantName = this.branding.tenantName || 'Velocity';
+    const tenantName = this.branding.tenantName || 'Empire Building Materials';
     let logoUrl = this.branding.logoUrl || null;
 
     if (!logoUrl && this.branding.logoBase64 && this.branding.logoType) {
@@ -279,11 +279,11 @@ export class PvHeader extends PvBase {
           <div class="header-contact">
             <div class="contact-item">
               <span class="contact-label">Call Us:</span>
-              <span>${this.branding.contactPhone}</span>
+              <span>(800) 255-0311</span>
             </div>
             <div class="contact-item">
               <span class="contact-label">Email:</span>
-              <span>${this.branding.contactEmail}</span>
+              <span>support@empireinc.com</span>
             </div>
           </div>
 

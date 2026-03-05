@@ -693,6 +693,10 @@ export class PvPageBilling extends PvBase {
               `)}
             </tbody>
           </table>
+          <div class="method-details">
+              <span class="method-name">ACH Direct Debit</span>
+              <span class="method-meta">9876</span>
+            </div>
         `}
 
         <div class="detail-totals">

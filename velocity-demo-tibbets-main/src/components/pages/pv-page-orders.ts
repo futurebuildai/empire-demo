@@ -427,7 +427,7 @@ export class PvPageOrders extends PvBase {
       <div class="filters-bar">
         <div class="filter-chips">
           ${this.filters.map(filter => html`
-            <button 
+            <button
               class="filter-chip ${this.activeFilter === filter ? 'active' : ''}"
               @click=${() => this.setFilter(filter)}
             >${filter}</button>
@@ -436,18 +436,29 @@ export class PvPageOrders extends PvBase {
       </div>
 
       <div class="orders-table">
+        <div class="orders-table-header">
+          <div class="header-item" @click=${() => this.sort('poNumber')}>
+            PO Number ${this.renderSortIcon('poNumber')}
+          </div>
+          <div class="header-item" @click=${() => this.sort('orderNumber')}>
+            Order # ${this.renderSortIcon('orderNumber')}
+          </div>
+          <div class="header-item" @click=${() => this.sort('projectId')}>
+            Project ${this.renderSortIcon('projectId')}
+          </div>
+          <div class="header-item">
+            Summary
+          </div>
+          <div class="header-item text-right" @click=${() => this.sort('total')}>
+            Total ${this.renderSortIcon('total')}
+          </div>
+          <div class="header-item" @click=${() => this.sort('status')}>
+            Status ${this.renderSortIcon('status')}
+          </div>
+          <div class="header-item"></div>
+        </div>
         ${this.orders.map(order => html`
           <div class="order-row">
-            <div class="order-row-main">
-              <div class="order-row-info">
-                <span class="order-number">${order.orderNumber}</span>
-                <span class="order-date">${this.formatDate(order.createdAt || '')}</span>
-              </div>
-              <div class="order-row-project">
-                <span class="project-badge" style="background: ${this.getProjectColor(order)};"></span>
-                Project ${order.projectId?.slice(-1) || '1'}
-              </div>
-              <div class="order-row-summary">
                 <span>${this.getOrderSummary(order)}</span>
               </div>
               <div class="order-row-total">${this.formatCurrency(order.total)}</div>

@@ -459,9 +459,9 @@ export class PvQuickQuoteModal extends PvBase {
   }
 
   private renderHeader() {
-    let title = 'Start a New Quote';
-    if (this.currentStep === 'fulfillment') title = 'Fulfillment Details';
-    if (this.currentStep === 'success') title = 'Request Submitted';
+    let title = 'Submit Purchase Order';
+    if (this.currentStep === 'fulfillment') title = 'Order Fulfillment';
+    if (this.currentStep === 'success') title = 'Purchase Order Submitted';
 
     return html`
       <div class="modal-header">
@@ -494,16 +494,16 @@ export class PvQuickQuoteModal extends PvBase {
             <div class="selection-card" @click=${() => this.handleSelection('upload')}>
                 <svg class="selection-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                 <div>
-                    <div class="selection-title">Upload Material List</div>
-                    <div class="selection-desc">Drag & drop images, PDFs, or Excel files. AI-powered SKU matching.</div>
+                    <div class="selection-title">Upload PO Document</div>
+                    <div class="selection-desc">Upload PDF, Excel, or CSV material list. High priority processing.</div>
                 </div>
             </div>
             
             <div class="selection-card" @click=${() => this.handleSelection('manual')}>
                 <svg class="selection-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                 <div>
-                    <div class="selection-title">Manual Entry</div>
-                    <div class="selection-desc">Type or paste your list of items directly. Perfect for quick requests.</div>
+                    <div class="selection-title">Manual Order Entry</div>
+                    <div class="selection-desc">Perfect for smaller add-on orders. Quick and easy.</div>
                 </div>
             </div>
         </div>
@@ -532,8 +532,8 @@ export class PvQuickQuoteModal extends PvBase {
             >
                 <input type="file" id="fileInput" multiple style="display: none" @change=${this.handleFileInput} accept=".pdf,.png,.jpg,.jpeg,.xlsx,.csv" />
                 <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                <div class="upload-text">Upload Material List</div>
-                <div class="upload-subtext">Drop your files here, or browse</div>
+                <div class="upload-text">Upload Purchase Order</div>
+                <div class="upload-subtext">Drop your PDF or Excel files here</div>
                 <div class="upload-subtext" style="margin-top: var(--space-xs); opacity: 0.7;">SUPPORTS: JPG, PNG, PDF, XLSX</div>
                 ${this.uploadedFiles.length > 0 ?
         html`<div style="margin-top: var(--space-md); color: var(--color-success); font-weight: 600;">${this.uploadedFiles.length} file(s) selected</div>`
@@ -553,10 +553,10 @@ export class PvQuickQuoteModal extends PvBase {
             </div>
             
             <div>
-                <div class="manual-label" style="margin-bottom: var(--space-xs);">Paste or type your material list:</div>
+                <div class="manual-label" style="margin-bottom: var(--space-xs);">Enter your order details / requirements:</div>
                 <textarea 
                     class="manual-textarea" 
-                    placeholder="Example:\n10 2x4x8 studs\n5lb box of 16d nails\n3 sheets of 3/4 plywood"
+                    placeholder="Example:\n250 units 2x4x8 SPF Studs\n500 sheets 1/2 CDX Plywood\nJob Name: Houston Heights"
                     .value=${this.manualText}
                     @input=${(e: Event) => this.manualText = (e.target as HTMLTextAreaElement).value}
                     autofocus
@@ -592,7 +592,7 @@ export class PvQuickQuoteModal extends PvBase {
             </div>
             
             <div style="background: var(--color-bg-alt); padding: var(--space-md); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-text-light);">
-                <p><strong>Note:</strong> Your sales representative will review this request and provide a formal quote with pricing and availability within 24 hours.</p>
+                <p><strong>Note:</strong> Your direct sales representative will receive this PO immediately. You will receive a confirmation once the order has been entered into the ERP system.</p>
             </div>
         </div>
     `;
@@ -602,8 +602,8 @@ export class PvQuickQuoteModal extends PvBase {
     return html`
         <div class="success-state">
             <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            <h3 class="success-title">Request Sent!</h3>
-            <p class="success-message">Your quote request has been successfully pushed to your sales representative. You will receive a notification once it is ready for review.</p>
+            <h3 class="success-title">Order Submitted!</h3>
+            <p class="success-message">Your purchase order has been successfully sent to Empire Building Materials. Your sales representative (Mark Anderson) will notify you once the order is processed.</p>
         </div>
     `;
   }

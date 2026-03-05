@@ -496,8 +496,8 @@ export class PvPageLanding extends PvBase {
       <!-- Hero -->
       <pv-store-hero 
         title="Florida’s Premier Provider of Construction Materials"
-        subtitle="Established in 1949, Tibbetts Lumber Co. provides high-quality building materials and exceptional service across Florida and the Caribbean."
-        background="/tibbetts-hero.jpg"
+        subtitle="Established in 1949, Empire Building Materials provides high-quality building materials and exceptional service across Florida and the Caribbean."
+        background="/empire-hero.jpg"
         .showSearch=${true}
         .isLoggedIn=${AuthService.isAuthenticated()}
         @search=${(e: CustomEvent) => RouterService.navigate('shop', { search: e.detail.query })}
@@ -507,7 +507,7 @@ export class PvPageLanding extends PvBase {
       <div class="welcome-strip">
         <div class="container">
           <div class="welcome-text">
-            Providing Quality Building Materials <span>Since 1949</span>. Experience the Tibbetts Lumber difference today.
+            Providing Quality Building Materials <span>Since 1949</span>. Experience the Empire Building Materials difference today.
           </div>
         </div>
       </div>
@@ -680,7 +680,7 @@ export class PvPageLanding extends PvBase {
             <a href="#contact" class="footer-link">Contact</a>
           </div>
           <div class="copyright">
-            &copy; 2026 Tibbetts Lumber Co. All rights reserved.
+            &copy; 2026 Empire Building Materials All rights reserved.
           </div>
         </div>
       </footer>

@@ -219,7 +219,7 @@ export class PvShareDocumentModal extends PvBase {
 
     private handleCopyLink() {
         // Mock copy link
-        navigator.clipboard.writeText(`https://portal.tibbettslumber.com/docs/${this.selectedDocumentId || '123'}`);
+        navigator.clipboard.writeText(`https://portal.empireinc.com/docs/${this.selectedDocumentId || '123'}`);
         PvToast.show('Link copied to clipboard', 'success');
     }
 

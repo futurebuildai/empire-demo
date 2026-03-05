@@ -1,36 +1,44 @@
-# Session Handoff - Drawer & Search Refinement
+# Session Handoff - Empire Building Materials Refactor
 
-**Date:** 2026-02-11
-**Focus:** Quote Flow, Cart Enhancements, and UI Polishing
+**Date:** 2026-03-05
+**Focus:** Full Portal Refactor for Empire Building Materials (Distributor-to-Dealer)
 
 ## Work Summary
 
 | Activity | Details | Status |
 | :--- | :--- | :--- |
-| **Drawer Logic** | Fixed duplicate `handleCloseDrawer` and overlay closing bugs. | ✅ Complete |
-| **UX Fix** | Resolved `pointer-events` collision between hidden drawers. | ✅ Complete |
-| **Search UI** | Removed redundant search from global header. | ✅ Complete |
-| **Feature** | Integrated Catalog Search into **Cart Drawer** & **Quote Drawer**. | ✅ Complete |
-| **Verification** | Confirmed Hero search and drawer interactions in browser. | ✅ Complete |
+| **Branding** | Updated support info, company name, and landing page content. | ✅ Complete |
+| **Overview** | Added Sales Rep card; transformed Quick Quote → Submit PO. | ✅ Complete |
+| **Billing** | Restricted payments to ACH only; removed credit card data. | ✅ Complete |
+| **Orders** | Updated mock data to bulk distributor model; emphasized PO numbers. | ✅ Complete |
+| **Quotes** | Renamed Estimates to Quotes; updated data and UI. | ✅ Complete |
+| **Pruning** | Removed Documents and Projects pages. | ✅ Complete |
 
 ## Code Changes
 
 ### Components
-- **`src/components/organisms/pv-cart-drawer.ts`**: Added integrated catalog search and fixed `pointer-events`.
-- **`src/components/organisms/pv-quote-drawer.ts`**: Fixed `pointer-events` and interaction logic.
-- **`src/components/organisms/pv-header.ts`**: Removed search bar and balanced layout.
-- **`src/components/pv-app.ts`**: Consolidated drawer state management and events.
+- **`src/components/organisms/pv-header.ts`**: Updated with Empire support info.
+- **`src/components/organisms/pv-sidebar.ts`**: Updated navigation (Quotes, Payment Methods).
+- **`src/components/organisms/pv-quick-quote-modal.ts`**: Transformed into PO submission modal.
+- **`src/components/pages/pv-page-overview.ts`**: Added Sales Rep and Submit PO cards.
+- **`src/components/pages/pv-page-estimates.ts`**: Renamed to Quotes (internal class `PvPageQuotes`).
+- **`src/components/pages/pv-page-billing.ts`**: Updated for ACH focus.
+- **`src/features/billing/components/pv-payment-modal.ts`**: Restricted to ACH only.
+- **`src/components/pv-login.ts`**: Updated branding and default credentials.
 
-### Documentation
-- **`.agent/DECISIONS.md`**: Added DEC-022 (Contextual Search) and DEC-023 (Drawer Focus).
-- **`.agent/ROADMAP.md`**: Marked e-commerce re-integration tasks as complete.
-- **`.agent/CONTEXT.md`**: Updated current project state to reflect e-commerce refinements.
+### Mock Data & Types
+- **`src/mock/customer-mock.ts`**: Completely replaced with Empire-specific distributor data.
+- **`src/types/index.ts`**: Renamed `Estimate` types to `Quote` types and updated `RouteId`.
+
+### Documentation (Synced)
+- **`.agent/ROADMAP.md`**, **`.agent/DECISIONS.md`**, **`.agent/CONTEXT.md`**, **`.agent/SYSTEM_PROMPT.md`**.
 
 ## Verification
-- **Browser Subagent**: Successfully verified search removal from header, drawer search functionality, and overlay closing.
-- **Visual**: Confirmed Hero search on landing page is still the primary entry point and functional.
+- **Logic Review**: All Lit components verified for architectural consistency.
+- **Mock Data**: Verified that the new `MOCK_ACCOUNT` correctly drives the distributor-to-dealer UI.
+- **Walkthrough**: Generated [walkthrough.md](file:///home/colton/.gemini/antigravity/brain/f9e5c47f-294e-48f9-8d66-a915d5ecd815/walkthrough.md) documenting changes.
 
 ## Next Steps (Prioritized)
-1. **Checkout Submission**: Complete the order submission logic in `pv-page-checkout.ts`.
-2. **Inventory Sync**: Connect drawer search results to live inventory if available in backend.
-3. **Logistics Integration**: Start mapping delivery tracking components to the dashboard.
+1. **ERP Integration**: Map PO submission fields to the `BisTrack` backend API.
+2. **Real-time Inventory**: Connect the catalog search in the PO modal to live inventory.
+3. **Logistics Tracking**: Implement the "On-The-Dot" tracking for bulk dealer deliveries.

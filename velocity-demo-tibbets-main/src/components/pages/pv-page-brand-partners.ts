@@ -105,7 +105,7 @@ export class PvPageBrandPartners extends PvBase {
           <h2 style="text-align: center; font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: var(--space-3xl); color: var(--color-primary);">Industry Leaders</h2>
           
           <div style="text-align: center;">
-            <img src="/brand-logos.png" alt="Tibbetts Lumber Brand Partners" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); margin-bottom: var(--space-2xl);">
+            <img src="/brand-logos.png" alt="Empire Lumber Brand Partners" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); margin-bottom: var(--space-2xl);">
           </div>
           
           <div class="brand-grid">

@@ -21,10 +21,10 @@ export interface BrandingUpdatePayload {
 
 // BuilderWire fallback branding
 const DEFAULT_BRANDING: DealerBranding = {
-    companyName: 'Tibbetts Lumber Co.',
-    logoUrl: '/tibbetts-logo.png',
-    contactEmail: 'info@tibbettslumber.com',
-    contactPhone: '(727) 499-0090',
+    companyName: 'Empire Building Materials',
+    logoUrl: '/empire-logo.png',
+    contactEmail: 'info@empireinc.com',
+    contactPhone: '(800) 283-3254',
 };
 
 class AdminBrandingServiceImpl {

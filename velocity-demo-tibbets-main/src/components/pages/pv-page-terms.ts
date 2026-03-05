@@ -65,16 +65,16 @@ export class PvPageTerms extends PvBase {
           <p>Last Updated: February 2026</p>
           
           <h2>1. Introduction</h2>
-          <p>Welcome to the Tibbetts Lumber Co. website. By accessing or using our website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our site.</p>
+          <p>Welcome to the Empire Building Materials website. By accessing or using our website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our site.</p>
 
           <h2>2. Commercial Credit</h2>
           <p>Commercial credit accounts are subject to approval and are governed by our separate Commercial Credit Agreement. Payment terms for such accounts are typically NET 30 unless otherwise specified in writing.</p>
 
           <h2>3. Intellectual Property</h2>
-          <p>All content on this website, including text, graphics, logos, and images, is the property of Tibbetts Lumber Co. or its content suppliers and is protected by international copyright laws.</p>
+          <p>All content on this website, including text, graphics, logos, and images, is the property of Empire Building Materials or its content suppliers and is protected by international copyright laws.</p>
 
           <h2>4. Limitation of Liability</h2>
-          <p>Tibbetts Lumber Co. shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our services or website.</p>
+          <p>Empire Building Materials shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use our services or website.</p>
 
           <h2>5. Governing Law</h2>
           <p>These terms shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions.</p>

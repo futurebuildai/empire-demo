@@ -2,7 +2,7 @@
 
 ## What is My Account Lite?
 
-My Account Lite is a dedicated Pro customer portal for **LBM (Lumber & Building Materials)** dealers. It is designed to be a standalone widget or subdomain companion to a dealer's existing website. It provides:
+My Account Lite is a dedicated Pro customer portal for **LBM (Lumber & Building Materials)** dealers. It is designed to be a standalone widget or subdomain companion to a dealer's existing website. This session focused on refactoring the portal for **Empire Building Materials**. It provides:
 - A "My Account" portal for Pro customers (contractors, builders) to manage their business
 - Deep integration with dealer ERP systems for orders, billing, and projects
 
@@ -25,8 +25,8 @@ My Account Lite is a dedicated Pro customer portal for **LBM (Lumber & Building 
 - **Color Palette:** Slate (#1e293b) + Orange (#f97316)
 - **Typography:** Space Grotesk (headings) + Inter (body)
 - **Aesthetic:** Modern industrial, clean, professional
-- **Logo:** Hexagon (⬡) + "BOSS LUMBER & MILLWORK"
-- **Tagline:** "Pro Customer Portal"
+- **Logo:** Empire Building Materials
+- **Tagline:** "Dealer-to-Distributor Customer Portal"
 
 ## Technical Context
 
@@ -37,11 +37,12 @@ My Account Lite is a dedicated Pro customer portal for **LBM (Lumber & Building 
 - **Handoff Target:** Go/Postgres backend (planned, but out of scope for this repo)
 - **Deployment:** Subdomain widget model
 
-## Current State (Phase 3 Extension: E-commerce & Logistics)
-The project is currently refining **E-commerce & Logistics** flows. Key accomplishments include:
-- **Quote Drawer**: Fully implemented draft quote flow with integrated catalog search and submission.
-- **Cart Refinement**: Enhanced the shopping cart with an integrated catalog search for rapid item addition during checkout.
-- **UI Optimization**: Streamlined the global header by moving search functionality into contextual areas (Hero, Drawers).
-- **Interaction Polish**: Fixed critical drawer collision and interaction bugs to ensure a smooth B2B purchasing experience.
+## Current State (Phase 5: Empire Building Materials Refactor)
+The project has successfully completed the refactor for **Empire Building Materials**. Key accomplishments include:
+- **Rebranded Portal**: Updated all UI elements, support contact info, and landing page content to Empire branding.
+- **Submit PO Workflow**: Transformed Quick Quote into a high-priority Purchase Order submission tool.
+- **ACH-Only Logistics**: Restricted billing to industrial-grade ACH transactions, removing retail credit card options.
+- **Distributor Logic**: Optimized Orders and Quotes tables for bulk dealer-to-distributor interactions with PO emphasis.
+- **Navigation Pruning**: Removed Projects and Documents pages to streamline the Pro dealer experience.
 
-**Next Priority**: Complete the checkout submission logic and integrate with backend payment/order processing.
+**Next Priority**: Finalize order submission logic and connect with real ERP backend endpoints for live PO syncing.

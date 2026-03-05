@@ -264,22 +264,66 @@ export class PvPageOverview extends PvBase {
           <button class="stat-link" @click=${() => RouterService.navigate('orders')}>View Orders →</button>
         </div>
 
-        <div class="stat-card">
-          <div class="stat-content">
-            <span class="stat-label">Pending Estimates</span>
-            <span class="stat-value">${this.pendingEstimatesCount}</span>
-            <span class="stat-meta">${this.pendingEstimatesCount === 1 ? '1 estimate' : `${this.pendingEstimatesCount} estimates`} awaiting review</span>
+        <!-- Sales Rep Contact Info -->
+        <div class="summary-card">
+          <div class="card-header">
+            <div class="header-content">
+              <h3 class="card-title">Your Sales Representative</h3>
+              <p class="card-subtitle">Direct contact for orders and quotes</p>
+            </div>
+            <div class="header-icon" style="background: var(--color-primary-light-10); color: var(--color-primary);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
           </div>
-          <button class="stat-link" @click=${() => RouterService.navigate('estimates')}>Review →</button>
+          <div class="card-body">
+            <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-bg-alt); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-primary);">MA</div>
+              <div>
+                <div style="font-weight: 600; color: var(--color-text);">Mark Anderson</div>
+                <div style="font-size: var(--text-sm); color: var(--color-text-muted);">Senior Sales Specialist</div>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: var(--space-xs); font-size: var(--text-sm);">
+              <a href="tel:7135550123" style="display: flex; align-items: center; gap: var(--space-sm); color: var(--color-primary); text-decoration: none;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                (713) 555-0123
+              </a>
+              <a href="mailto:m.anderson@empireinc.com" style="display: flex; align-items: center; gap: var(--space-sm); color: var(--color-primary); text-decoration: none;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                m.anderson@empireinc.com
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="stat-card">
-          <div class="stat-content">
-            <span class="stat-label">Quick Quote</span>
-            <span class="stat-value" style="font-size: var(--text-2xl);">Start New</span>
-            <span class="stat-meta">Upload list or manual entry</span>
+        <!-- Submit Purchase Order -->
+        <div class="summary-card action-card primary" @click=${() => this.quickQuoteOpen = true}>
+          <div class="card-header">
+            <div class="header-content">
+              <h3 class="card-title">Submit Purchase Order</h3>
+              <p class="card-subtitle">Upload PDF or Spreadsheet</p>
+            </div>
+            <div class="header-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
           </div>
-          <button class="stat-link" @click=${() => this.quickQuoteOpen = true}>Start Now →</button>
+          <div class="card-body">
+            <p class="action-desc">Upload your material list or PO to bypass manual entry. Our team will process it and sync it with your account.</p>
+            <button class="action-button">
+              Submit Now
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 

@@ -68,7 +68,7 @@ export class PvPagePrivacy extends PvBase {
           <p>We do not share your personal information with third parties except as described in this policy or with your consent.</p>
 
           <h2>5. Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy, please contact us at privacy@tibbettslumber.com.</p>
+          <p>If you have any questions about this Privacy Policy, please contact us at privacy@empireinc.com.</p>
         </div>
       </div>
     `;

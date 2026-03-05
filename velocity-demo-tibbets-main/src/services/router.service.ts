@@ -8,9 +8,8 @@ import type { RouteId } from '../types/index.js';
 const VALID_ROUTES: RouteId[] = [
     'overview',
     'billing',
-    'projects',
     'orders',
-    'estimates',
+    'quotes',
     'wallet',
     'team',
     'settings',
@@ -27,7 +26,6 @@ const VALID_ROUTES: RouteId[] = [
     'contact',
     'terms',
     'privacy',
-    'documents',
 ];
 
 const DEFAULT_ROUTE: RouteId = 'overview';

@@ -15,7 +15,7 @@ import { buildPaginationTokens, getPaginationBounds } from '../../utils/paginati
 import './pv-checkout-modal.js';
 
 @customElement('pv-page-estimates')
-export class PvPageEstimates extends PvBase {
+export class PvPageQuotes extends PvBase {
   static styles = [
     ...PvBase.styles,
     css`
@@ -435,7 +435,7 @@ export class PvPageEstimates extends PvBase {
         : html`
             <button
               class="btn btn-outline btn-sm ${this.page === token ? 'active' : ''}"
-              ?disabled=${this.estimatesLoading}
+              ?disabled=${this.quotesLoading}
               @click=${() => this.handlePageChange(token)}
               style="${this.page === token ? 'background: var(--color-primary); color: white; border-color: var(--color-primary);' : ''}"
             >
@@ -448,9 +448,9 @@ export class PvPageEstimates extends PvBase {
   private renderListView() {
     const { start, end } = getPaginationBounds(this.page, this.pageSize, this.totalCount);
     return html`
-      ${this.estimatesLoading ? html`
+      ${this.quotesLoading ? html`
         <div style="margin-bottom: var(--space-md); color: var(--color-text-muted); font-size: var(--text-sm);">
-          Updating estimates...
+          Updating quotes...
         </div>
       ` : ''}
       <div class="filters-bar">
@@ -462,21 +462,21 @@ export class PvPageEstimates extends PvBase {
         `)}
       </div>
 
-      <div class="estimates-list">
-        ${this.estimates.map(estimate => html`
-          <div class="estimate-card">
-            <div class="estimate-header">
-              <div class="estimate-info">
-                <span class="estimate-number">${estimate.estimateNumber}</span>
-                <span class="status-badge ${this.getStatusClass(estimate.status)}">${this.getDisplayStatus(estimate.status)}</span>
+      <div class="quotes-list">
+        ${this.quotes.map(quote => html`
+          <div class="quote-card">
+            <div class="quote-header">
+              <div class="quote-info">
+                <span class="quote-number">${quote.quoteNumber}</span>
+                <span class="status-badge ${this.getStatusClass(quote.status)}">${this.getDisplayStatus(quote.status)}</span>
               </div>
-              <span class="estimate-${estimate.status === 'expired' ? 'date' : 'expiry'}">
-                ${estimate.status === 'expired' ? 'Expired' : estimate.status === 'accepted' ? 'Accepted' : 'Expires'}: ${estimate.validUntil ? this.formatDate(estimate.validUntil) : 'N/A'}
+              <span class="quote-${quote.status === 'expired' ? 'date' : 'expiry'}">
+                ${quote.status === 'expired' ? 'Expired' : quote.status === 'accepted' ? 'Accepted' : 'Expires'}: ${quote.validUntil ? this.formatDate(quote.validUntil) : 'N/A'}
               </span>
             </div>
-            <div class="estimate-body">
-              <div class="estimate-products">
-                <div class="estimate-thumb-placeholder">
+            <div class="quote-body">
+              <div class="quote-products">
+                <div class="quote-thumb-placeholder">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
@@ -484,18 +484,22 @@ export class PvPageEstimates extends PvBase {
                     <line x1="16" y1="17" x2="8" y2="17"></line>
                   </svg>
                 </div>
-                <div class="estimate-details-text">
-                  <span class="estimate-project-name">${this.getProjectName(estimate)}</span>
-                  <span class="estimate-summary">${estimate.lines?.length || 0} products</span>
+                <div class="quote-details-text">
+                  <span class="quote-project-name">${this.getProjectName(quote)}</span>
+                  <span class="quote-summary">${quote.lines?.length || 0} products</span>
                 </div>
               </div>
-              <div class="estimate-total">
-                <span class="total-label">Estimate Total</span>
-                <span class="total-value">${this.formatCurrency(estimate.total)}</span>
+              <div class="stat-content">
+                <span class="stat-label">Active Quotes</span>
+                <span class="stat-value">${this.quotes.length}</span>
+              </div>
+              <div class="quote-total">
+                <span class="total-label">Quote Total</span>
+                <span class="total-value">${this.formatCurrency(quote.total)}</span>
               </div>
             </div>
-            <div class="estimate-actions">
-              <button class="btn btn-outline" @click=${() => this.viewEstimateDetail(estimate)}>View Details</button>
+            <div class="quote-actions">
+              <button class="btn btn-outline" @click=${() => this.viewQuoteDetail(quote)}>View Details</button>
             </div>
           </div>
         `)}
@@ -506,22 +510,22 @@ export class PvPageEstimates extends PvBase {
           Showing ${start}-${end} of ${this.totalCount}
         </div>
         <div style="display: flex; gap: var(--space-sm);">
-          <button class="btn btn-outline btn-sm" ?disabled=${this.page === 1 || this.estimatesLoading} @click=${() => this.handlePageChange(this.page - 1)}>Previous</button>
+          <button class="btn btn-outline btn-sm" ?disabled=${this.page === 1 || this.quotesLoading} @click=${() => this.handlePageChange(this.page - 1)}>Previous</button>
           ${this.renderPageNumbers()}
-          <button class="btn btn-outline btn-sm" ?disabled=${this.page >= Math.ceil(this.totalCount / this.pageSize) || this.estimatesLoading} @click=${() => this.handlePageChange(this.page + 1)}>Next</button>
+          <button class="btn btn-outline btn-sm" ?disabled=${this.page >= Math.ceil(this.totalCount / this.pageSize) || this.quotesLoading} @click=${() => this.handlePageChange(this.page + 1)}>Next</button>
         </div>
       </div>
     `;
   }
 
   private renderDetailView() {
-    if (!this.selectedEstimate) return html``;
+    if (!this.selectedQuote) return html``;
 
-    const estimate = this.selectedEstimate;
-    const projectName = this.getProjectName(estimate);
-    const subtitle = projectName === estimate.estimateNumber
-      ? `Valid until ${estimate.validUntil ? this.formatDate(estimate.validUntil) : 'N/A'}`
-      : `${projectName} • Valid until ${estimate.validUntil ? this.formatDate(estimate.validUntil) : 'N/A'}`;
+    const quote = this.selectedQuote;
+    const projectName = this.getProjectName(quote);
+    const subtitle = projectName === quote.quoteNumber
+      ? `Valid until ${quote.validUntil ? this.formatDate(quote.validUntil) : 'N/A'}`
+      : `${projectName} • Valid until ${quote.validUntil ? this.formatDate(quote.validUntil) : 'N/A'}`;
 
     return html`
       <div class="detail-header">
@@ -532,11 +536,11 @@ export class PvPageEstimates extends PvBase {
           </svg>
           Back to List
         </button>
-        <div class="estimate-actions-group">
-          ${estimate.status === 'sent' || estimate.status === 'accepted' ? html`
-            <button class="btn btn-primary btn-sm" @click=${() => this.openCheckoutModal(estimate)}>Accept & Convert</button>
+        <div class="quote-actions-group">
+          ${quote.status === 'sent' || quote.status === 'accepted' ? html`
+            <button class="btn btn-primary btn-sm" @click=${() => this.openCheckoutModal(quote)}>Accept & Convert</button>
           ` : nothing}
-          <button class="btn btn-outline btn-sm" @click=${() => this.downloadEstimatePdf(estimate)}>Download PDF</button>
+          <button class="btn btn-outline btn-sm" @click=${() => this.downloadQuotePdf(quote)}>Download PDF</button>
           <button class="btn btn-outline btn-sm" @click=${() => PvToast.show('Data export coming soon', 'info')}>Export Data</button>
         </div>
       </div>
@@ -544,13 +548,13 @@ export class PvPageEstimates extends PvBase {
       <div class="detail-card">
         <div class="detail-title-row">
           <div>
-            <h2 class="detail-id">${estimate.estimateNumber}</h2>
+            <h2 class="detail-id">${quote.quoteNumber}</h2>
             <p class="detail-project-info">${subtitle}</p>
           </div>
-          <span class="status-badge ${this.getStatusClass(estimate.status)}">${this.getDisplayStatus(estimate.status)}</span>
+          <span class="status-badge ${this.getStatusClass(quote.status)}">${this.getDisplayStatus(quote.status)}</span>
         </div>
 
-        <p>Estimate total: <strong>${this.formatCurrency(estimate.total)}</strong></p>
+        <p>Quote total: <strong>${this.formatCurrency(quote.total)}</strong></p>
         
         <table class="line-items-table" style="margin-top: var(--space-xl);">
           <thead>
@@ -573,10 +577,10 @@ export class PvPageEstimates extends PvBase {
               <tr>
                 <td colspan="4" class="text-center" style="padding: var(--space-xl); color: var(--color-error);">
                   <p>${this.lineError}</p>
-                  <button class="btn btn-outline btn-sm" style="margin-top: var(--space-md);" @click=${() => this.viewEstimateDetail(estimate)}>Retry</button>
+                  <button class="btn btn-outline btn-sm" style="margin-top: var(--space-md);" @click=${() => this.viewQuoteDetail(quote)}>Retry</button>
                 </td>
               </tr>
-            ` : estimate.lines && estimate.lines.length > 0 ? estimate.lines.map(line => html`
+            ` : quote.lines && quote.lines.length > 0 ? quote.lines.map(line => html`
               <tr>
                 <td>
                   <div class="line-item-name">${line.name}</div>
@@ -589,7 +593,7 @@ export class PvPageEstimates extends PvBase {
             `) : html`
               <tr>
                 <td colspan="4" class="text-center" style="padding: var(--space-xl);">
-                  <p>No line items found for this estimate.</p>
+                  <p>No line items found for this quote.</p>
                 </td>
               </tr>
             `}
@@ -597,21 +601,21 @@ export class PvPageEstimates extends PvBase {
           <tfoot>
             <tr>
               <td colspan="3" class="text-right">Subtotal</td>
-              <td class="text-right">${this.formatCurrency(estimate.subtotal || 0)}</td>
+              <td class="text-right">${this.formatCurrency(quote.subtotal || 0)}</td>
             </tr>
             <tr>
               <td colspan="3" class="text-right">Tax</td>
-              <td class="text-right">${this.formatCurrency(estimate.tax || 0)}</td>
+              <td class="text-right">${this.formatCurrency(quote.tax || 0)}</td>
             </tr>
             <tr>
               <td colspan="3" class="text-right"><strong>Total</strong></td>
-              <td class="text-right"><strong>${this.formatCurrency(estimate.total)}</strong></td>
+              <td class="text-right"><strong>${this.formatCurrency(quote.total)}</strong></td>
             </tr>
           </tfoot>
         </table>
 
         <div class="detail-actions-footer" style="margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: var(--text-sm);">
-          <p>This estimate is valid for 30 days. Contact your sales representative to convert this estimate to an order.</p>
+          <p>This quote is valid for 30 days. Contact your sales representative to convert this quote to an order.</p>
         </div>
       </div>
     `;
@@ -621,7 +625,7 @@ export class PvPageEstimates extends PvBase {
     if (this.loading) {
       return html`
         <div style="display: flex; justify-content: center; padding: var(--space-2xl);">
-          <div class="loading-spinner">Loading estimates...</div>
+          <div class="loading-spinner">Loading quotes...</div>
         </div>
       `;
     }
@@ -630,16 +634,16 @@ export class PvPageEstimates extends PvBase {
       return html`
         <div style="text-align: center; padding: var(--space-2xl); background: #fee2e2; border-radius: var(--radius-lg); color: #991b1b;">
           <p>${this.error}</p>
-          <button class="btn btn-outline" style="margin-top: var(--space-md);" @click=${() => this.loadEstimates(true)}>Retry</button>
+          <button class="btn btn-outline" style="margin-top: var(--space-md);" @click=${() => this.loadQuotes(true)}>Retry</button>
         </div>
       `;
     }
 
     return html`
-      <div class="section-header">
-        <div>
-          <h1 class="section-title">Estimates</h1>
-          <p class="section-subtitle">View your project estimates</p>
+      <div class="page-header">
+        <div class="header-main">
+          <h1 class="page-title">Quotes</h1>
+          <p class="page-subtitle">View and manage your bulk quote requests</p>
         </div>
       </div>
 
@@ -657,6 +661,6 @@ export class PvPageEstimates extends PvBase {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'pv-page-estimates': PvPageEstimates;
+    'pv-page-estimates': PvPageQuotes;
   }
 }

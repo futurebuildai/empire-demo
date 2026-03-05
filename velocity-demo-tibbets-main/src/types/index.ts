@@ -23,7 +23,7 @@ export type InvoiceStatus =
     | 'cancelled'
     | 'void';
 
-export type EstimateStatus =
+export type QuoteStatus =
     | 'sent'
     | 'accepted'
     | 'rejected'
@@ -215,12 +215,12 @@ export interface InvoiceLine {
 // Estimate Schema
 // ============================================
 
-export interface Estimate {
+export interface Quote {
     id: number;
-    estimateNumber: string;
+    quoteNumber: string;
     userId?: string;
     projectId?: string | null;
-    status: EstimateStatus;
+    status: QuoteStatus;
     validUntil: string;
     subtotal?: number;
     tax?: number;
@@ -295,7 +295,7 @@ export type RouteId =
     | 'billing'
     | 'projects'
     | 'orders'
-    | 'estimates'
+    | 'quotes'
     | 'wallet'
     | 'team'
     | 'settings'
@@ -311,8 +311,7 @@ export type RouteId =
     | 'brand-partners'
     | 'contact'
     | 'terms'
-    | 'privacy'
-    | 'documents';
+    | 'privacy';
 
 // ============================================
 // Toast Events
@@ -361,6 +360,8 @@ export interface Product {
     salePrice?: number;
     sku?: string;
     manufacturerLink?: string;
+    minOrderQuantity?: number;
+    unitOfMeasure?: string;
 }
 
 export interface Category {

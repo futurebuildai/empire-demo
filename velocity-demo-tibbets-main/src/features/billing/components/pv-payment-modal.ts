@@ -270,8 +270,9 @@ export class PvPaymentModal extends PvBase {
   private async loadPaymentMethods() {
     this.loading = true;
     try {
-      this.paymentMethods = await BillingService.getPaymentMethods();
-      // Select default if available, otherwise first one
+      const allMethods = await BillingService.getPaymentMethods();
+      this.paymentMethods = allMethods.filter(pm => pm.type === 'ach' || pm.type === 'bank_account');
+
       const defaultMethod = this.paymentMethods.find(pm => pm.isDefault);
       if (defaultMethod) {
         this.selectedMethodId = defaultMethod.id;
@@ -349,11 +350,8 @@ export class PvPaymentModal extends PvBase {
 
   private renderPaymentMethod(method: PaymentMethod) {
     const isSelected = this.selectedMethodId === method.id;
-    const isCard = method.type === 'card';
-    const label = isCard ? `Card ending in ${method.last4}` : `Bank Account ending in ${method.last4}`;
-    const meta = isCard
-      ? `${method.brand || 'Card'} • Exp ${method.expMonth}/${method.expYear}`
-      : 'ACH Direct Debit';
+    const label = `Bank Account ending in ${method.last4}`;
+    const meta = 'ACH Direct Debit';
 
     return html`
       <div 
@@ -361,17 +359,10 @@ export class PvPaymentModal extends PvBase {
         @click=${() => this.selectMethod(method.id)}
       >
         <div class="method-icon">
-            ${isCard ? html`
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                    <line x1="1" y1="10" x2="23" y2="10"></line>
-                </svg>
-            ` : html`
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
-            `}
         </div>
         <div class="method-details">
           <span class="method-name">${label}</span>

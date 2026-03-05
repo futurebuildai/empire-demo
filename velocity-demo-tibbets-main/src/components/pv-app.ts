@@ -18,9 +18,8 @@ import './organisms/pv-header.js';
 import './organisms/pv-sidebar.js';
 import './pages/pv-page-overview.js';
 import './pages/pv-page-orders.js';
-import './pages/pv-page-estimates.js';
+import './pages/pv-page-estimates.js'; // Will rename file later
 import './pages/pv-page-billing.js';
-import './pages/pv-page-projects.js';
 import './pages/pv-page-wallet.js';
 import './pages/pv-page-team.js';
 import './pages/pv-page-settings.js';
@@ -40,7 +39,6 @@ import './pages/pv-page-brand-partners.js';
 import './pages/pv-page-contact.js';
 import './pages/pv-page-terms.js';
 import './pages/pv-page-privacy.js';
-import './pages/pv-page-documents.js';
 
 @customElement('pv-app')
 export class PvApp extends PvBase {
@@ -362,11 +360,9 @@ export class PvApp extends PvBase {
         return html`<pv-page-overview></pv-page-overview>`;
       case 'billing':
         return html`<pv-page-billing></pv-page-billing>`;
-      case 'projects':
-        return html`<pv-page-projects></pv-page-projects>`;
       case 'orders':
         return html`<pv-page-orders></pv-page-orders>`;
-      case 'estimates':
+      case 'quotes':
         return html`<pv-page-estimates></pv-page-estimates>`;
       case 'wallet':
         return html`<pv-page-wallet></pv-page-wallet>`;

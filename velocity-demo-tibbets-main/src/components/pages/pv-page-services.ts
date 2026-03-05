@@ -233,7 +233,7 @@ export class PvPageServices extends PvBase {
       <div class="cta-section">
         <div class="container">
           <h2>Ready to get started?</h2>
-          <p>Contact your local Tibbetts Lumber representative to discuss your next project.</p>
+          <p>Contact your local Empire Lumber representative to discuss your next project.</p>
           <a href="#contact" class="btn">Find a Location</a>
         </div>
       </div>

@@ -12,12 +12,12 @@ export interface BrandingInfo {
 }
 
 const DEFAULT_BRANDING = {
-    companyName: 'Tibbetts Lumber Co.',
+    companyName: 'Empire Building Materials',
     logoBase64: null,
     logoType: null,
-    logoUrl: '/tibbetts-logo.png',
-    contactEmail: 'info@tibbettslumber.com',
-    contactPhone: '(727) 499-0090',
+    logoUrl: '/empire-logo.png',
+    contactEmail: 'info@empireinc.com',
+    contactPhone: '(800) 283-3254',
 };
 
 class BrandingServiceImpl {

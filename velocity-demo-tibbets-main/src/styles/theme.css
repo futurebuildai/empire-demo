@@ -4,15 +4,15 @@
    ======================================== */
 
 :root {
-    /* Colors - Slate & Ember */
-    --color-primary: #1e293b;
-    --color-primary-dark: #0f172a;
-    --color-primary-light: #334155;
-    --color-accent: #f97316;
-    --color-accent-light: #fb923c;
-    --color-accent-dark: #ea580c;
-    --color-cta: #f97316;
-    --color-cta-hover: #ea580c;
+    /* Colors - Empire Green & Gray */
+    --color-primary: #333333;
+    --color-primary-dark: #000000;
+    --color-primary-light: #4c4c4c;
+    --color-accent: #006630;
+    --color-accent-light: #008a41;
+    --color-accent-dark: #004d24;
+    --color-cta: #006630;
+    --color-cta-hover: #004d24;
     --color-text: #0f172a;
     --color-text-light: #475569;
     --color-text-muted: #94a3b8;
@@ -83,8 +83,11 @@
     --admin-sidebar-hover: #1e293b;
     --admin-sidebar-text: #94a3b8;
     --admin-sidebar-text-active: #ffffff;
-    --admin-accent: #6366f1; /* Indigo 500 */
-    --admin-accent-hover: #4f46e5; /* Indigo 600 */
+    --admin-accent: #6366f1;
+    /* Indigo 500 */
+    --admin-accent-hover: #4f46e5;
+    /* Indigo 600 */
     --admin-card-bg: #ffffff;
-    --admin-bg: #f1f5f9; /* Slate 100 */
+    --admin-bg: #f1f5f9;
+    /* Slate 100 */
 }

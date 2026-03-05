@@ -178,7 +178,7 @@ export class PvLogin extends PvBase {
     `,
   ];
 
-  @state() private email = 'demo@homeprousa.com';
+  @state() private email = 'j.dealer@qualitylumber.com';
   @state() private password = 'demo';
   @state() private showError = false;
   @state() private isLoading = false;
@@ -229,7 +229,7 @@ export class PvLogin extends PvBase {
   }
 
   render() {
-    const tenantName = this.branding.tenantName || 'Velocity';
+    const tenantName = this.branding.tenantName || 'Empire Building Materials';
     const logoUrl = this.branding.logoBase64 && this.branding.logoType
       ? `data:${this.branding.logoType};base64,${this.branding.logoBase64}`
       : null;

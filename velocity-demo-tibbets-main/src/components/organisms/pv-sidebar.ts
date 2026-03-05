@@ -198,11 +198,9 @@ export class PvSidebar extends PvBase {
       { id: 'overview', label: 'Overview', icon: 'grid' },
       // { id: 'shop', label: 'Shop', icon: 'shopping-bag' }, // accessible via home or default
       { id: 'billing', label: 'Billing', icon: 'credit-card', badge: this.openInvoicesCount > 0 ? this.openInvoicesCount : undefined, alertBadge: this.overdueInvoicesCount > 0 ? this.overdueInvoicesCount : undefined },
-      { id: 'documents', label: 'Documents', icon: 'file-text' },
-      { id: 'projects', label: 'Projects', icon: 'folder' },
       { id: 'orders', label: 'Orders', icon: 'package' },
-      { id: 'estimates', label: 'Estimates', icon: 'file-text', badge: this.pendingEstimatesCount > 0 ? this.pendingEstimatesCount : undefined },
-      { id: 'wallet', label: 'Wallet', icon: 'wallet' },
+      { id: 'quotes', label: 'Quotes', icon: 'file-text', badge: this.pendingEstimatesCount > 0 ? this.pendingEstimatesCount : undefined },
+      { id: 'wallet', label: 'Payment Methods', icon: 'credit-card' },
       { id: 'team', label: 'Team', icon: 'users' },
       { id: 'settings', label: 'Settings', icon: 'settings' },
     ];
@@ -323,12 +321,11 @@ export class PvSidebar extends PvBase {
       <div class="account-sidebar-footer">
         <div class="account-support">
           <p class="support-label">Need Help?</p>
-          <a href="tel:${(supportPhone ?? '').replace(/\D/g, '')}" class="support-phone">
-            ${supportPhone}
-          </a>
-          <a href="mailto:${supportEmail ?? ''}" class="support-email">
-            ${supportEmail}
-          </a>
+            <div class="support-title">Empire Support</div>
+            <div class="support-details">
+              <a href="tel:8002550311">(800) 255-0311</a><br>
+              <a href="mailto:support@empireinc.com">support@empireinc.com</a>
+            </div>
         </div>
         <button class="sign-out-btn" @click=${this.handleSignOut}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

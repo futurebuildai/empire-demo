@@ -5,23 +5,23 @@
 
 /* CSS Custom Properties (Design Tokens) */
 :root {
-  /* Colors - Tibbetts Lumber Palette */
-  --color-primary: #111827;
-  /* Dark Slate/Black */
-  --color-primary-dark: #030712;
+  /* Colors - Empire Building Materials Palette */
+  --color-primary: #333333;
+  /* Dark Gray */
+  --color-primary-dark: #000000;
   /* Black */
-  --color-primary-light: #374151;
-  /* Gray 700 */
-  --color-accent: #f97316;
-  /* Tibbetts Orange (approximated from logo) */
-  --color-accent-light: #fb923c;
-  /* Orange 400 */
-  --color-accent-dark: #ea580c;
-  /* Orange 600 */
-  --color-cta: #f97316;
-  /* Orange 500 */
-  --color-cta-hover: #ea580c;
-  /* Orange 600 */
+  --color-primary-light: #4c4c4c;
+  /* Gray */
+  --color-accent: #006630;
+  /* Empire Green */
+  --color-accent-light: #008a41;
+  /* Green 400 */
+  --color-accent-dark: #004d24;
+  /* Green 600 */
+  --color-cta: #006630;
+  /* Empire Green */
+  --color-cta-hover: #004d24;
+  /* Green 600 */
   --color-text: #0f172a;
   /* Slate 900 */
   --color-text-light: #475569;

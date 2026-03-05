@@ -342,7 +342,7 @@ export class PvSendRemindersModal extends PvBase {
                                     <p><strong>Outstanding Balance: [Amount]</strong></p>
                                     <p>Please click the link below to view the invoice and make a payment.</p>
                                     <p><a href="#" style="color: #6366f1; text-decoration: none;">View Invoice</a></p>
-                                    <p>Thank you,<br><strong>Tibbetts Lumber Co.</strong></p>
+                                    <p>Thank you,<br><strong>Empire Building Materials</strong></p>
                                 </div>
                             </div>
                         `}
